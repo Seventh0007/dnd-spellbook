@@ -1,0 +1,173 @@
+/* D&D Stat Block 风格法术卡片样式 */
+/* 提取自 stat-block-demo-v3.html */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Georgia, Garamond, "Noto Serif SC", SimSun, serif;
+    background: #32281f;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.stat-block {
+    background: #fdf1dc;
+    border: 5px double #7a200d;
+    padding: 15px 20px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    position: relative;
+}
+
+.stat-block::before,
+.stat-block::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-color: #7a200d;
+}
+
+.stat-block::before {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid;
+    border-left: 3px solid;
+}
+
+.stat-block::after {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}
+
+.spell-name {
+    font-family: Georgia, serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #7a200d;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.spell-subtitle {
+    font-family: Georgia, serif;
+    font-size: 0.85em;
+    color: #7a200d;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.divider {
+    border: none;
+    border-top: 2px double #7a200d;
+    height: 6px;
+    margin: 10px 0;
+}
+
+.divider-thin {
+    border: none;
+    border-top: 1px solid #7a200d;
+    margin: 12px 0;
+}
+
+.stat-line {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.stat-label {
+    font-family: Georgia, serif;
+    font-size: 0.75em;
+    color: #7a200d;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-right: 6px;
+    white-space: nowrap;
+    min-width: 70px;
+    font-variant: small-caps;
+}
+
+.stat-value {
+    font-family: Georgia, "Noto Serif SC", serif;
+    font-size: 0.85em;
+    color: #222;
+    flex: 1;
+}
+
+.num {
+    font-variant-numeric: tabular-nums;
+    font-family: Georgia, serif;
+}
+
+.description {
+    font-family: "Noto Serif SC", SimSun, serif;
+    font-size: 0.9em;
+    color: #222;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 12px;
+}
+
+.description strong {
+    font-weight: 700;
+}
+
+.higher-level {
+    font-family: Georgia, "Noto Serif SC", serif;
+    font-size: 0.85em;
+    color: #444;
+    font-style: italic;
+    margin-top: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #7a200d;
+    line-height: 1.5;
+}
+
+.higher-level-label {
+    font-weight: 700;
+    color: #7a200d;
+}
+
+.quote {
+    font-family: "Noto Serif SC", SimSun, serif;
+    font-size: 0.85em;
+    color: #888;
+    font-style: italic;
+    margin-top: 6px;
+    padding-top: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.source-placeholder {
+    font-family: Georgia, serif;
+    font-size: 0.75em;
+    color: #666;
+    text-align: right;
+    margin-top: 12px;
+    font-style: italic;
+    border: 1px dashed #999;
+    padding: 4px 8px;
+    display: inline-block;
+    float: right;
+}
+
+@media (max-width: 480px) {
+    .stat-block {
+        padding: 12px 15px;
+        margin: 10px;
+    }
+    .spell-name { font-size: 1.3em; }
+    .stat-label { font-size: 0.7em; min-width: 60px; }
+    .stat-value, .description { font-size: 0.85em; }
+}

@@ -1,0 +1,8 @@
+{
+  "cssTheme": "Blue Topaz",
+  "theme": "moonstone",
+  "enabledCssSnippets": [
+    "extended-colorschemes",
+    "first-line-indent"
+  ]
+}

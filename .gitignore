@@ -1,0 +1,33 @@
+# Git 忽略文件
+
+# WorkBuddy 数据目录（不需要上传）
+.workbuddy/
+
+# IDE 配置文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.tmp
+*.bak
+*.log
+
+# 操作系统文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# 旧版本文件（可选，如果需要保留则删除此行）
+stat-block-demo-v2.html
+
+# 节点模块（如果以后添加npm包）
+node_modules/
+package-lock.json
+yarn.lock
+
+# 构建输出（如果以后添加构建流程）
+dist/
+build/
