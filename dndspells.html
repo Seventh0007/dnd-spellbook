@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法术查询 - 跑团法术书</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stat-block.css">
+    <style>
+        /* ============================
+           法术查询页特定样式
+           ============================ */
+        
+        /* 导航栏（Stat Block风格） */
+        .navbar {
+            background: var(--parchment);
+            border: 3px double var(--dnd-red);
+            padding: var(--spacing-md) var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .navbar-logo {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--dnd-red);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .navbar-logo:hover {
+            text-decoration: none;
+            color: var(--dnd-red-light);
+        }
+        
+        .navbar-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+        
+        .navbar-links a {
+            color: var(--dnd-red);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-links a:hover {
+            text-decoration: underline;
+            color: var(--dnd-red-light);
+        }
+        
+        /* 页面标题区（Stat Block风格） */
+        .page-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--parchment-light);
+            border: 3px double var(--dnd-red);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .page-title {
+            font-size: 2.2em;
+            color: var(--dnd-red);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+        
+        .page-description {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        
+        /* 搜索和筛选区（Stat Block风格） */
+        .search-filter-section {
+            background: var(--parchment-light);
+            border: 3px double var(--dnd-red);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: var(--spacing-md);
+            font-family: var(--font-serif);
+            font-size: 1em;
+            border: 2px double var(--dnd-red);
+            background: var(--parchment);
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-lg);
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--shadow-light);
+            background: var(--parchment);
+        }
+        
+        .search-box::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .filters-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .filter-select {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-serif);
+            font-size: 0.95em;
+            border: 2px double var(--dnd-red);
+            background: var(--parchment);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--shadow-light);
+        }
+        
+        .filter-select option {
+            background: var(--parchment);
+            color: var(--text-primary);
+        }
+        
+        .filter-select option:hover {
+            background: var(--parchment-dark);
+        }
+        
+        /* 法术列表区（Stat Block卡片网格） */
+        .spells-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* 法术卡片（基于stat-block.css扩展） */
+        .spell-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .spell-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px var(--shadow-light);
+        }
+        
+        .spell-card .stat-block {
+            max-width: 100%;
+            height: 100%;
+        }
+        
+        /* 法术详情弹窗（完整Stat Block样式） */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: var(--spacing-lg);
+        }
+        
+        .modal-overlay.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: var(--parchment);
+            border: 5px double var(--dnd-red);
+            padding: var(--spacing-xl);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: var(--parchment);
+            border: 2px double var(--dnd-red);
+            color: var(--dnd-red);
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: var(--parchment-dark);
+            box-shadow: 0 0 10px var(--shadow-light);
+        }
+        
+        /* 无结果提示 */
+        .no-results {
+            text-align: center;
+            padding: var(--spacing-xxl);
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 1.2em;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .navbar-links {
+                gap: var(--spacing-md);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-title {
+                font-size: 1.8em;
+            }
+            
+            .spells-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                padding: var(--spacing-lg);
+                margin: var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .filters-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏（Stat Block风格） -->
+    <div class="container">
+        <nav class="navbar">
+            <a href="index.html" class="navbar-logo">
+                📖 跑团法术书
+            </a>
+            <ul class="navbar-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="GuideBook.html">新手指南</a></li>
+                <li><a href="MagicTutorial.html">施法教程</a></li>
+                <li><a href="UserManual.html">用户手册</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 页面标题区（动态更新） -->
+        <div class="page-header">
+            <h1 class="page-title" id="page-title">经典5版规则法术库</h1>
+            <div class="page-description" id="page-description">原汁原味的五版法术库</div>
+        </div>
+        
+        <!-- 搜索和筛选区（Stat Block风格） -->
+        <section class="search-filter-section">
+            <input type="text" 
+                   class="search-box" 
+                   id="search-box" 
+                   placeholder="搜索法术名称、描述、学派、职业...">
+            
+            <div class="filters-row">
+                <select class="filter-select" id="filter-level">
+                    <option value="all">全部环数</option>
+                    <option value="0">戏法</option>
+                    <option value="1">1环</option>
+                    <option value="2">2环</option>
+                    <option value="3">3环</option>
+                    <option value="4">4环</option>
+                    <option value="5">5环</option>
+                    <option value="6">6环</option>
+                    <option value="7">7环</option>
+                    <option value="8">8环</option>
+                    <option value="9">9环</option>
+                </select>
+                
+                <select class="filter-select" id="filter-school">
+                    <option value="all">全部学派</option>
+                    <option value="塑能">塑能</option>
+                    <option value="咒法">咒法</option>
+                    <option value="预言">预言</option>
+                    <option value="幻术">幻术</option>
+                    <option value="死灵">死灵</option>
+                    <option value="变化">变化</option>
+                    <option value="防护">防护</option>
+                    <option value="惑控">惑控</option>
+                </select>
+                
+                <select class="filter-select" id="filter-class">
+                    <option value="all">全部职业</option>
+                    <option value="法师">法师</option>
+                    <option value="牧师">牧师</option>
+                    <option value="德鲁伊">德鲁伊</option>
+                    <option value="吟游诗人">吟游诗人</option>
+                    <option value="术士">术士</option>
+                    <option value="邪术师">邪术师</option>
+                    <option value="圣武士">圣武士</option>
+                    <option value="游侠">游侠</option>
+                </select>
+            </div>
+        </section>
+        
+        <!-- 法术列表区（Stat Block卡片网格） -->
+        <section class="spells-grid" id="spells-grid">
+            <!-- 法术卡片将通过JavaScript动态生成 -->
+        </section>
+        
+        <!-- 无结果提示（默认隐藏） -->
+        <div class="no-results" id="no-results" style="display: none;">
+            未找到匹配的法术，请尝试其他搜索条件。
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2026 跑团法术书 | DUNGEONS & DRAGONS 粉丝制作</p>
+        </footer>
+    </div>
+    
+    <!-- 法术详情弹窗（完整Stat Block样式） -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content" id="modal-content">
+            <button class="modal-close" id="modal-close">×</button>
+            <!-- 弹窗内容将通过JavaScript动态生成 -->
+        </div>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()"></div>
+    
+    <!-- JavaScript -->
+    <script src="js/spells.js"></script>
+</body>
+</html>

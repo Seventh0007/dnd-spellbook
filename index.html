@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跑团法术书 - D&D 法术查询工具</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/stat-block.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        
+        <!-- ============================
+             标题区（Stat Block风格）
+             ============================ -->
+        <section class="hero-section fade-in">
+            <h1 class="hero-title">跑团法术书</h1>
+            <div class="hero-subtitle">DUNGEONS & DRAGONS · 法术查询工具</div>
+            <hr class="divider">
+        </section>
+        
+        <!-- ============================
+             核心功能区（Stat Block卡片）
+             ============================ -->
+        <section class="features-section">
+            
+            <!-- 经典5版规则卡片 -->
+            <div class="feature-card" onclick="location.href='dndspells.html?v=5e'">
+                <div class="feature-card-title">经典5版规则</div>
+                <div class="feature-card-subtitle">5th Edition Classic Rules</div>
+                <hr class="divider">
+                <div class="feature-card-desc">
+                    原汁原味的五版法术库，包含玩家手册、怪物手册等官方资料的完整法术数据。
+                </div>
+                <div class="feature-card-link">点击查看法术 →</div>
+            </div>
+            
+            <!-- 全新5版规则卡片 -->
+            <div class="feature-card" onclick="location.href='dndspells.html?v=5r'">
+                <div class="feature-card-title">全新5版规则</div>
+                <div class="feature-card-subtitle">2024 Revision Rules</div>
+                <hr class="divider">
+                <div class="feature-card-desc">
+                    2024版扩展与重构法术，体验最新的D&D规则体系和法术平衡调整。
+                </div>
+                <div class="feature-card-link">点击查看法术 →</div>
+            </div>
+            
+        </section>
+        
+        <!-- ============================
+             学习资源区（Stat Block风格链接）
+             ============================ -->
+        <section class="resources-section">
+            <h2 class="resources-title">学习资源</h2>
+            <div class="resources-grid">
+                <a href="GuideBook.html" class="resource-link">新手指南</a>
+                <a href="MagicTutorial.html" class="resource-link">施法教程</a>
+                <a href="UserManual.html" class="resource-link">用户手册</a>
+            </div>
+        </section>
+        
+        <!-- ============================
+             跑团冷知识区（Stat Block风格）
+             ============================ -->
+        <section class="funfact-section">
+            <div class="funfact-card" id="funfact-card">
+                <div class="funfact-title">跑团冷知识</div>
+                <hr class="divider">
+                <div class="funfact-content" id="funfact-content">
+                    在D&D中，'法术位'（Spell Slot）是施放法术的资源。法师需要准备法术并消耗法术位来施放，这模拟了施法者的精神和体力限制。
+                </div>
+                <div class="funfact-refresh">
+                    <button class="btn-stat-block" onclick="showNextFunFact()">换一个冷知识</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ============================
+             页脚信息（简化）
+             ============================ -->
+        <footer class="footer">
+            <p>© 2026 跑团法术书 | DUNGEONS & DRAGONS 粉丝制作</p>
+            <p style="margin-top: 10px; font-size: 0.85em; color: #999;">
+                本网站为非官方粉丝作品，D&D及相关商标归Wizards of the Coast所有。
+            </p>
+        </footer>
+        
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()"></div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

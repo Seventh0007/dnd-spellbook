@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户手册 - 跑团法术书</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 辅助页面样式（复用GuideBook.html的样式） */
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+            background: var(--parchment-light);
+            border: 3px double var(--dnd-red);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .content-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .content-section h2 {
+            text-align: left;
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5em;
+        }
+        
+        .content-section p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .content-section ul,
+        .content-section ol {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .content-section li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        
+        .tip-box {
+            background: var(--parchment);
+            border: 2px double var(--dnd-red);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            font-style: italic;
+        }
+        
+        .tip-box::before {
+            content: "💡 提示：";
+            font-weight: 700;
+            font-style: normal;
+            color: var(--dnd-red);
+        }
+        
+        .shortcut-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .shortcut-table th,
+        .shortcut-table td {
+            border: 1px solid var(--dnd-red);
+            padding: var(--spacing-sm) var(--spacing-md);
+            text-align: left;
+        }
+        
+        .shortcut-table th {
+            background: var(--parchment-dark);
+            font-weight: 700;
+            color: var(--dnd-red);
+        }
+        
+        .shortcut-table td {
+            background: var(--parchment);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <a href="index.html" class="navbar-logo">
+                📖 跑团法术书
+            </a>
+            <ul class="navbar-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="GuideBook.html">新手指南</a></li>
+                <li><a href="MagicTutorial.html">施法教程</a></li>
+                <li><a href="UserManual.html">用户手册</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 页面标题区 -->
+        <div class="page-header">
+            <h1 class="page-title">用户手册</h1>
+            <div class="page-description">跑团法术书使用指南</div>
+        </div>
+        
+        <!-- 内容区域（Stat Block风格排版） -->
+        <div class="page-container">
+            
+            <section class="content-section">
+                <h2>网站功能概览</h2>
+                <p>
+                    跑团法术书是一个面向D&D 5版玩家的法术查询工具。
+                    本网站提供简洁、快速的法术搜索和浏览体验，采用D&D官方Stat Block视觉风格。
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>首页功能</h2>
+                <p><strong>核心功能入口：</strong></p>
+                <ul>
+                    <li><strong>经典5版规则</strong>：点击进入经典5版（5e）法术库</li>
+                    <li><strong>全新5版规则</strong>：点击进入2024修订版（5r）法术库</li>
+                </ul>
+                
+                <p><strong>学习资源：</strong></p>
+                <ul>
+                    <li><strong>新手指南</strong>：D&D法术系统入门知识</li>
+                    <li><strong>施法教程</strong>：学习如何在D&D中施放法术</li>
+                    <li><strong>用户手册</strong>：本页面，网站使用指南</li>
+                </ul>
+                
+                <p><strong>跑团冷知识：</strong></p>
+                <ul>
+                    <li>每30秒自动更换一条冷知识</li>
+                    <li>点击"换一个冷知识"按钮手动更换</li>
+                    <li>内容涵盖D&D法术、规则、战术等</li>
+                </ul>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>法术查询页功能</h2>
+                
+                <p><strong>搜索功能：</strong></p>
+                <ul>
+                    <li>在搜索框中输入关键词，实时筛选法术</li>
+                    <li>支持搜索法术名称（中英文）、描述、学派、职业</li>
+                    <li>输入时自动筛选，无需点击搜索按钮</li>
+                </ul>
+                
+                <p><strong>筛选功能：</strong></p>
+                <ul>
+                    <li><strong>环数筛选</strong>：选择特定环数（戏法、1环-9环）</li>
+                    <li><strong>学派筛选</strong>：选择法术学派（塑能、咒法、预言等8个学派）</li>
+                    <li><strong>职业筛选</strong>：选择施法职业（法师、牧师、德鲁伊等）</li>
+                    <li>可以组合使用多个筛选条件</li>
+                </ul>
+                
+                <p><strong>法术卡片：</strong></p>
+                <ul>
+                    <li>每个法术显示为D&D Stat Block风格卡片</li>
+                    <li>显示法术名称、环数、学派、基本属性</li>
+                    <li>点击卡片查看完整法术详情</li>
+                    <li>鼠标悬停时卡片有发光效果</li>
+                </ul>
+                
+                <p><strong>法术详情弹窗：</strong></p>
+                <ul>
+                    <li>点击法术卡片打开详情弹窗</li>
+                    <li>显示完整Stat Block样式：法术名称、环数、学派、施法时间、距离、成分、持续时间、完整描述</li>
+                    <li>关闭方式：点击×按钮、点击弹窗外部区域、按ESC键</li>
+                </ul>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>键盘快捷键</h2>
+                <table class="shortcut-table">
+                    <thead>
+                        <tr>
+                            <th>快捷键</th>
+                            <th>功能</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ESC</strong></td>
+                            <td>关闭法术详情弹窗</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ctrl + F</strong></td>
+                            <td>聚焦搜索框（部分浏览器）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>响应式设计</h2>
+                <p>
+                    本网站采用响应式设计，完美适配各种设备：
+                </p>
+                <ul>
+                    <li><strong>桌面端（> 1024px）</strong>：完整布局，2列卡片，3列筛选</li>
+                    <li><strong>平板端（768px - 1024px）</strong>：自适应布局，1-2列卡片</li>
+                    <li><strong>手机端（< 768px）</strong>：单列布局，全宽搜索框和筛选器</li>
+                </ul>
+                <p>
+                    无论在电脑、平板还是手机上，都能获得良好的浏览体验。
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>常见问题（FAQ）</h2>
+                
+                <p><strong>Q: 如何切换5e和5r版本？</strong></p>
+                <p>A: 在首页点击对应版本的卡片即可。也可以在URL中手动添加参数，如 <code>dndspells.html?v=5e</code> 或 <code>dndspells.html?v=5r</code>。</p>
+                
+                <p><strong>Q: 搜索功能支持模糊搜索吗？</strong></p>
+                <p>A: 支持。输入部分关键词即可匹配包含该关键词的法术。搜索范围包括法术名称、描述、学派、职业等。</p>
+                
+                <p><strong>Q: 如何查看法术的完整描述？</strong></p>
+                <p>A: 点击任意法术卡片，会弹出完整Stat Block样式的详情弹窗。</p>
+                
+                <p><strong>Q: 网站是官方的吗？</strong></p>
+                <p>A: 不是。本网站是粉丝制作的第三方工具，与Wizards of the Coast无关。D&D及相关商标归Wizards of the Coast所有。</p>
+                
+                <div class="tip-box">
+                    如果你发现任何bug或有改进建议，欢迎通过GitHub Issues反馈！
+                </div>
+            </section>
+            
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2026 跑团法术书 | DUNGEONS & DRAGONS 粉丝制作</p>
+        </footer>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()"></div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

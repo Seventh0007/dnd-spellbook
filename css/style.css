@@ -1,0 +1,579 @@
+/* ============================
+   D&D 跑团法术书 - 全局样式
+   基于D&D官方Stat Block设计风格
+   ============================ */
+
+/* CSS变量定义 - D&D Stat Block颜色方案 */
+:root {
+    /* 主色调（纸张） */
+    --parchment: #fdf1dc;
+    --parchment-light: #faf3e0;
+    --parchment-dark: #e0d5b8;
+    
+    /* 强调色（边框/标题） */
+    --dnd-red: #7a200d;
+    --dnd-red-light: #a0301a;
+    --dnd-gold: #c9ad6a;
+    
+    /* 文本色 */
+    --text-primary: #222;
+    --text-secondary: #666;
+    --text-tertiary: #888;
+    --text-muted: #999;
+    
+    /* 功能色 */
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --shadow-light: rgba(122, 32, 13, 0.6);
+    
+    /* 字体 */
+    --font-serif: Georgia, Garamond, "Noto Serif SC", SimSun, serif;
+    --font-size-base: 16px;
+    
+    /* 间距 */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 40px;
+    
+    /* 布局 */
+    --max-width: 1200px;
+    --border-double: 2px double var(--dnd-red);
+}
+
+/* ============================
+   全局重置与基础样式
+   ============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-base);
+    background: #32281f url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%2332281f"/><path d="M0 0L100 100M100 0L0 100" stroke="%23221818" stroke-width="0.5" opacity="0.1"/></svg>') repeat;
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ============================
+   布局容器
+   ============================ */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background: var(--parchment);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    min-height: 100vh;
+}
+
+/* ============================
+   标题样式（Stat Block风格）
+   ============================ */
+h1 {
+    font-family: var(--font-serif);
+    font-size: 2.5em;
+    color: var(--dnd-red);
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    color: var(--dnd-red);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700);
+}
+
+h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5em;
+    color: var(--dnd-red);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700);
+}
+
+/* 双线分隔符 */
+.divider {
+    border: none;
+    border-top: var(--border-double);
+    margin: var(--spacing-lg) 0;
+    height: 6px;
+}
+
+.divider-thin {
+    border: none;
+    border-top: 1px solid var(--dnd-red);
+    margin: var(--spacing-md) 0;
+}
+
+/* ============================
+   链接样式（Stat Block风格）
+   ============================ */
+a {
+    color: var(--dnd-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--dnd-red-light);
+    text-decoration: underline;
+}
+
+/* ============================
+   Stat Block卡片基础样式
+   ============================ */
+.stat-block-card {
+    background: var(--parchment);
+    border: 5px double var(--dnd-red);
+    padding: var(--spacing-lg);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.stat-block-card::before,
+.stat-block-card::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-color: var(--dnd-red);
+}
+
+.stat-block-card::before {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid;
+    border-left: 3px solid;
+}
+
+.stat-block-card::after {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}
+
+.stat-block-card:hover {
+    box-shadow: 0 0 15px var(--shadow-light);
+    transform: translateY(-5px);
+}
+
+/* ============================
+   按钮样式（Stat Block风格）
+   ============================ */
+.btn-stat-block {
+    display: inline-block;
+    background: var(--parchment);
+    border: 2px double var(--dnd-red);
+    color: var(--dnd-red);
+    font-family: var(--font-serif);
+    font-size: 1em;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-stat-block:hover {
+    background: var(--parchment-dark);
+    box-shadow: 0 0 10px var(--shadow-light);
+}
+
+/* ============================
+   首页样式
+   ============================ */
+
+/* 标题区 */
+.hero-section {
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-title {
+    font-size: 3em;
+    color: var(--dnd-red);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+}
+
+/* 功能卡片区 */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.feature-card {
+    background: var(--parchment);
+    border: 5px double var(--dnd-red);
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-card::before,
+.feature-card::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-color: var(--dnd-red);
+}
+
+.feature-card::before {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid;
+    border-left: 3px solid;
+}
+
+.feature-card::after {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}
+
+.feature-card:hover {
+    box-shadow: 0 0 15px var(--shadow-light);
+    transform: translateY(-5px);
+}
+
+.feature-card-title {
+    font-size: 1.8em;
+    color: var(--dnd-red);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.feature-card-subtitle {
+    font-size: 1em;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-variant: small-caps;
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-card-desc {
+    font-size: 1em;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-card-link {
+    display: inline-block;
+    color: var(--dnd-red);
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.feature-card-link:hover {
+    color: var(--dnd-red-light);
+    text-decoration: underline;
+}
+
+/* 学习资源区 */
+.resources-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.resources-title {
+    font-size: 1.8em;
+    color: var(--dnd-red);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.resource-link {
+    display: block;
+    background: var(--parchment);
+    border: 3px double var(--dnd-red);
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--dnd-red);
+    font-family: var(--font-serif);
+    font-size: 1.2em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.resource-link:hover {
+    background: var(--parchment-dark);
+    box-shadow: 0 0 10px var(--shadow-light);
+    text-decoration: none;
+}
+
+/* 冷知识区 */
+.funfact-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.funfact-card {
+    background: var(--parchment);
+    border: 5px double var(--dnd-red);
+    padding: var(--spacing-xl);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.funfact-card::before,
+.funfact-card::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-color: var(--dnd-red);
+}
+
+.funfact-card::before {
+    top: -3px;
+    left: -3px;
+    border-top: 3px solid;
+    border-left: 3px solid;
+}
+
+.funfact-card::after {
+    bottom: -3px;
+    right: -3px;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+}
+
+.funfact-title {
+    font-size: 1.5em;
+    color: var(--dnd-red);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+}
+
+.funfact-content {
+    font-size: 1.1em;
+    color: var(--text-primary);
+    line-height: 1.8;
+    text-align: justify;
+    font-style: italic;
+}
+
+.funfact-refresh {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    border-top: var(--border-double);
+    margin-top: var(--spacing-xxl);
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+/* ============================
+   返回顶部按钮（Stat Block风格）
+   ============================ */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--parchment);
+    border: 3px double var(--dnd-red);
+    border-radius: 50%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background: var(--parchment-dark);
+    box-shadow: 0 0 15px var(--shadow-light);
+    transform: translateY(-3px);
+}
+
+.back-to-top::before {
+    content: '↑';
+    font-size: 1.5em;
+    color: var(--dnd-red);
+    font-weight: 700;
+}
+
+.back-to-top.show {
+    display: flex;
+}
+
+/* ============================
+   Toast提示（Stat Block风格）
+   ============================ */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--parchment);
+    border: 3px double var(--dnd-red);
+    padding: var(--spacing-md) var(--spacing-xl);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    z-index: 2000;
+    font-family: var(--font-serif);
+    color: var(--dnd-red);
+    font-weight: 700;
+    animation: fadeInOut 3s ease;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* ============================
+   响应式设计
+   ============================ */
+@media (max-width: 1024px) {
+    .container {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .hero-title {
+        font-size: 2.5em;
+    }
+    
+    .features-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --font-size-base: 14px;
+    }
+    
+    .container {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .hero-title {
+        font-size: 2em;
+    }
+    
+    .hero-subtitle {
+        font-size: 1em;
+    }
+    
+    .features-section {
+        gap: var(--spacing-lg);
+    }
+    
+    .feature-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8em;
+    }
+    
+    .feature-card-title {
+        font-size: 1.5em;
+    }
+    
+    .funfact-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* ============================
+   动画效果
+   ============================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease;
+}
+
+/* ============================
+   辅助类
+   ============================ */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-italic { font-style: italic; }
+.text-bold { font-weight: 700; }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }

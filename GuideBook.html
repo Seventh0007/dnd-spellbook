@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新手指南 - 跑团法术书</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 辅助页面样式 */
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+            background: var(--parchment-light);
+            border: 3px double var(--dnd-red);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .content-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .content-section h2 {
+            text-align: left;
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5em;
+        }
+        
+        .content-section p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .content-section ul,
+        .content-section ol {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .content-section li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        
+        .tip-box {
+            background: var(--parchment);
+            border: 2px double var(--dnd-red);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            font-style: italic;
+        }
+        
+        .tip-box::before {
+            content: "💡 提示：";
+            font-weight: 700;
+            font-style: normal;
+            color: var(--dnd-red);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <a href="index.html" class="navbar-logo">
+                📖 跑团法术书
+            </a>
+            <ul class="navbar-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="GuideBook.html">新手指南</a></li>
+                <li><a href="MagicTutorial.html">施法教程</a></li>
+                <li><a href="UserManual.html">用户手册</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 页面标题区 -->
+        <div class="page-header">
+            <h1 class="page-title">新手指南</h1>
+            <div class="page-description">D&D法术系统入门</div>
+        </div>
+        
+        <!-- 内容区域（Stat Block风格排版） -->
+        <div class="page-container">
+            
+            <section class="content-section">
+                <h2>欢迎来到D&D法术世界</h2>
+                <p>
+                    在龙与地下城（Dungeons & Dragons）第五版中，法术是施法者最强大的工具。
+                    无论你是刚接触跑团的新手，还是想深入了解法术系统的玩家，本指南都将帮助你快速上手。
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>什么是法术位？</h2>
+                <p>
+                    法术位（Spell Slot）是D&D 5版中施放法术的资源系统。想象法术位就像"法术电池"，
+                    每个法术位有一定环数（等级），你只能用相同或更高环数的法术位来施放法术。
+                </p>
+                <p>
+                    例如：一个3环法术位可以用来施放1环、2环或3环的法术，但不能施放4环法术。
+                </p>
+                <div class="tip-box">
+                    法师、牧师、德鲁伊等职业需要"准备法术"——每天长休后，从你的法术列表中
+                    选择一定数量的法术"装入"法术位。而吟游诗人、术士等职业则"已知法术"，
+                    他们知道的法术是固定的，只需选择用哪个法术位来施放。
+                </div>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>法术环数是什么？</h2>
+                <p>
+                    法术环数（Spell Level）表示法术的强度和复杂度。环数从0（戏法）到9（最高级法术）：
+                </p>
+                <ul>
+                    <li><strong>戏法（Cantrip）</strong>：0环法术，可以不消耗法术位无限次施放</li>
+                    <li><strong>1-3环</strong>：低级法术，适合新手施法者</li>
+                    <li><strong>4-6环</strong>：中级法术，需要更高等级才能施展</li>
+                    <li><strong>7-9环</strong>：高级法术，极其强大，通常改变战局</li>
+                </ul>
+                <p>
+                    注意：法术环数 ≠ 角色等级。一个5级法师可以施放1-3环法术，
+                    但需要使用对应环数的法术位。
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>法术成分：V、S、M</h2>
+                <p>
+                    许多法术需要特定成分才能施放：
+                </p>
+                <ul>
+                    <li><strong>言语（V）</strong>：需要发出特定的咒语声音。被gagged（塞口）或处于真空环境无法施放。</li>
+                    <li><strong>姿势（S）</strong>：需要做出特定的手势。双手被占用或束缚无法施放。</li>
+                    <li><strong>材料（M）</strong>：需要特定的材料组件。通常价格低于25gp且不被消耗。</li>
+                </ul>
+                <div class="tip-box">
+                    如果你的角色在潜行或需要保持安静，要注意言语成分的法术可能会暴露你的位置。
+                    同样，如果双手被占用（比如持盾和武器），你无法施放需要姿势成分的法术。
+                </div>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>集中（Concentration）</h2>
+                <p>
+                    D&D 5版引入了"集中"机制。许多强力法术（如<em>隐形术</em>、<em>飞行术</em>）需要施法者保持专注。
+                </p>
+                <p>
+                    当你维持一个需要集中的法术时：
+                </p>
+                <ul>
+                    <li>你不能施放另一个需要集中的法术</li>
+                    <li>如果你受到伤害，需要进行体质豁免（DC=10+伤害值的一半）来维持集中</li>
+                    <li>如果集中失败，法术终止</li>
+                </ul>
+                <p>
+                    这是D&D 5版平衡强力法术的重要机制。
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>如何使用本法术书网站？</h2>
+                <p>
+                    本网站设计简洁易用，帮助你快速查询D&D法术：
+                </p>
+                <ol>
+                    <li>从首页选择规则版本（经典5版或2024修订版）</li>
+                    <li>在搜索框中输入法术名称、描述或学派来快速查找</li>
+                    <li>使用下拉菜单按环数、学派、职业筛选法术</li>
+                    <li>点击法术卡片查看完整详情（Stat Block风格）</li>
+                    <li>在手机上也能完美使用（响应式设计）</li>
+                </ol>
+                <p>
+                    现在，去探索法术的世界吧！🔮
+                </p>
+            </section>
+            
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2026 跑团法术书 | DUNGEONS & DRAGONS 粉丝制作</p>
+        </footer>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()"></div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

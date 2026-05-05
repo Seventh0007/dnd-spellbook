@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>施法教程 - 跑团法术书</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 辅助页面样式（复用GuideBook.html的样式） */
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+            background: var(--parchment-light);
+            border: 3px double var(--dnd-red);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+        
+        .content-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .content-section h2 {
+            text-align: left;
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5em;
+        }
+        
+        .content-section p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .content-section ul,
+        .content-section ol {
+            margin-left: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .content-section li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.6;
+        }
+        
+        .tip-box {
+            background: var(--parchment);
+            border: 2px double var(--dnd-red);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            font-style: italic;
+        }
+        
+        .tip-box::before {
+            content: "💡 提示：";
+            font-weight: 700;
+            font-style: normal;
+            color: var(--dnd-red);
+        }
+        
+        .spell-example {
+            background: var(--parchment);
+            border: 3px double var(--dnd-red);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .spell-example h3 {
+            text-align: left;
+            font-size: 1.2em;
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <a href="index.html" class="navbar-logo">
+                📖 跑团法术书
+            </a>
+            <ul class="navbar-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="GuideBook.html">新手指南</a></li>
+                <li><a href="MagicTutorial.html">施法教程</a></li>
+                <li><a href="UserManual.html">用户手册</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 页面标题区 -->
+        <div class="page-header">
+            <h1 class="page-title">施法教程</h1>
+            <div class="page-description">学习如何在D&D中施放法术</div>
+        </div>
+        
+        <!-- 内容区域（Stat Block风格排版） -->
+        <div class="page-container">
+            
+            <section class="content-section">
+                <h2>施法基础</h2>
+                <p>
+                    在D&D中，施放法术需要遵循特定流程。无论你是法师、牧师还是其他施法者，
+                    理解施法流程都是至关重要的。
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>施法步骤</h2>
+                <ol>
+                    <li><strong>选择法术</strong>：从你准备/已知的法术列表中选择一个法术</li>
+                    <li><strong>选择法术位</strong>：决定使用哪个环数的法术位（可以使用更高环数）</li>
+                    <li><strong>提供成分</strong>：念出咒语（V）、做出手势（S）、提供材料（M）</li>
+                    <li><strong>指定目标/区域</strong>：根据法术范围指定目标或区域中心点</li>
+                    <li><strong>进行攻击检定/豁免检定</strong>：部分法术需要对手进行豁免，或你进行攻击检定</li>
+                    <li><strong>结算效果</strong>：应用法术伤害或效果</li>
+                </ol>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>实例：施放火球术</h2>
+                
+                <div class="spell-example">
+                    <h3>火球术（Fireball）</h3>
+                    <p><strong>环数：</strong>3环</p>
+                    <p><strong>成分：</strong>V、S、M（一块蝙蝠粪和硫磺）</p>
+                    <p><strong>施法时间：</strong>1动作</p>
+                    <p><strong>施法距离：</strong>150尺</p>
+                    <p><strong>持续时间：</strong>瞬时</p>
+                </div>
+                
+                <p><strong>施法流程：</strong></p>
+                <ol>
+                    <li>法师宣布施放"火球术"，消耗一个3环或更高环数的法术位</li>
+                    <li>法师念出咒语并做出特定手势（提供V和S成分）</li>
+                    <li>法师指定150尺内可见的一个点作为爆炸中心</li>
+                    <li>所有在爆炸中心20尺球状内的生物进行敏捷豁免</li>
+                    <li>豁免失败者受到8d6点火焰伤害，成功则伤害减半</li>
+                    <li>如果用法术位升环，每高1环增加1d6伤害</li>
+                </ol>
+                
+                <div class="tip-box">
+                    火球术会点燃可燃物。在木质建筑内施放火球术可能导致整栋建筑起火！
+                    聪明的玩家会利用环境因素造成额外伤害。
+                </div>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>集中法术的注意事项</h2>
+                <p>
+                    许多强力法术（如<em>隐形术</em>、<em>飞行术</em>）需要施法者保持"集中"状态。
+                </p>
+                <p><strong>集中规则：</strong></p>
+                <ul>
+                    <li>你同时只能维持一个需要集中的法术</li>
+                    <li>如果你受到伤害，需要进行体质豁免（DC = 10 + 伤害值的一半）</li>
+                    <li>如果豁免失败，法术终止</li>
+                    <li>如果你失去意识或死亡，所有需要集中的法术都会终止</li>
+                </ul>
+                <p>
+                    战术提示：让队友保护施法者，避免其受到伤害导致集中失败！
+                </p>
+            </section>
+            
+            <hr class="divider">
+            
+            <section class="content-section">
+                <h2>升环施法</h2>
+                <p>
+                    你可以用法术位施放比其环数低的法术。这被称为"升环施法"。
+                </p>
+                <p><strong>升环的好处：</strong></p>
+                <ul>
+                    <li><strong>伤害增加</strong>：许多攻击法术会随升环增加伤害骰</li>
+                    <li><strong>效果增强</strong>：部分法术会随环数提升效果（如治疗法术恢复更多生命值）</li>
+                    <li><strong>目标增多</strong>：部分法术可以影响更多目标</li>
+                </ul>
+                <p>
+                    例如：用法术位升环施放"魔法飞弹"，每升1环多创造1枚飞弹（最多4枚）。
+                </p>
+            </section>
+            
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>© 2026 跑团法术书 | DUNGEONS & DRAGONS 粉丝制作</p>
+        </footer>
+    </div>
+    
+    <!-- 返回顶部按钮 -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()"></div>
+    
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

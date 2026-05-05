@@ -1,0 +1,302 @@
+[
+    {
+        "id": "fireball",
+        "name": "火球术",
+        "nameEn": "Fireball",
+        "level": 3,
+        "school": "塑能",
+        "schoolEn": "evocation",
+        "classes": ["法师", "术士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "150尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": true,
+            "materialDesc": "一块蝙蝠粪和硫磺搓成的小球"
+        },
+        "duration": "瞬时",
+        "description": "你指着一个点，并随着一声低吼迸成一片烈焰。目标点周围半径20尺球状区域内的每个生物必须进行一次敏捷豁免。豁免失败者将受到8d6点火焰伤害，豁免成功则伤害减半。区域内所有未被着装或携带的可燃物件会开始燃烧。",
+        "higherLevel": "使用的法术位每比3环高一环，此伤害就增加1d6。",
+        "source": "玩家手册 第241页"
+    },
+    {
+        "id": "magic-missile",
+        "name": "魔法飞弹",
+        "nameEn": "Magic Missile",
+        "level": 1,
+        "school": "塑能",
+        "schoolEn": "evocation",
+        "classes": ["法师", "术士"],
+        "castingTime": "1动作",
+        "range": "120尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "瞬时",
+        "description": "你创造出数枚闪光飞弹。每枚飞弹对目标造成1d4+1点力场伤害。你创造的飞弹数量等于1+你使用的法术位环数（最大4枚）。每枚飞弹可以指向同一个或不同的目标。",
+        "higherLevel": "使用2环或更高环数的法术位施展此法术时，你每升1环就多创造1枚飞弹。",
+        "source": "玩家手册 第257页"
+    },
+    {
+        "id": "shield",
+        "name": "护盾术",
+        "nameEn": "Shield",
+        "level": 1,
+        "school": "防护",
+        "schoolEn": "abjuration",
+        "classes": ["法师", "术士"],
+        "castingTime": "1反应",
+        "range": "自身",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "直到当前回合结束",
+        "description": "你通过神秘力量制造一个隐形的力场护盾保护自己。直到你的下个回合开始前，你的AC获得+5加值，并且你能够免疫魔法飞弹的伤害。",
+        "source": "玩家手册 第275页"
+    },
+    {
+        "id": "cure-wounds",
+        "name": "治疗重伤",
+        "nameEn": "Cure Wounds",
+        "level": 1,
+        "school": "塑能",
+        "schoolEn": "evocation",
+        "classes": ["吟游诗人", "德鲁伊", "牧师", "圣武士", "游侠"],
+        "castingTime": "1动作",
+        "range": "触碰",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "瞬时",
+        "description": "你触碰一个生物，该生物恢复1d8+你的施法关键属性调整值生命值。此法术对 constructs 或不死生物无效。",
+        "higherLevel": "使用2环或更高环数的法术位施展此法术时，你每升1环就多恢复1d8生命值。",
+        "source": "玩家手册 第230页"
+    },
+    {
+        "id": "healing-word",
+        "name": "治疗真言",
+        "nameEn": "Healing Word",
+        "level": 1,
+        "school": "塑能",
+        "schoolEn": "evocation",
+        "classes": ["吟游诗人", "德鲁伊", "牧师"],
+        "castingTime": "1附赠动作",
+        "range": "60尺",
+        "components": {
+            "verbal": true,
+            "somatic": false,
+            "material": false
+        },
+        "duration": "瞬时",
+        "description": "你用神力编织一个治疗真言。选择一个范围内你可见的生物，该生物恢复1d4+你的施法关键属性调整值生命值。此法术对 constructs 或不死生物无效。",
+        "higherLevel": "使用2环或更高环数的法术位施展此法术时，你每升1环就多恢复1d4生命值。",
+        "source": "玩家手册 第250页"
+    },
+    {
+        "id": "invisibility",
+        "name": "隐形术",
+        "nameEn": "Invisibility",
+        "level": 2,
+        "school": "幻术",
+        "schoolEn": "illusion",
+        "classes": ["吟游诗人", "法师", "术士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "触碰",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": true,
+            "materialDesc": "一把睫毛浸泡在少量的水和泥中"
+        },
+        "duration": "专注，最多1小时",
+        "description": "你触碰的一个生物变为隐形，直到法术结束。所有生物中包括你选择的目标。只要该生物对自己或他人造成伤害，法术就会终止。",
+        "higherLevel": "使用3环或更高环数的法术位施展此法术时，你可以指定额外的目标，每升1环就多一个目标。",
+        "source": "玩家手册 第254页"
+    },
+    {
+        "id": "mage-armor",
+        "name": "法师护甲",
+        "nameEn": "Mage Armor",
+        "level": 1,
+        "school": "防护",
+        "schoolEn": "abjuration",
+        "classes": ["法师", "术士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "触碰",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": true,
+            "materialDesc": "一块鞣制过的皮革"
+        },
+        "duration": "8小时",
+        "description": "你触碰的一个自愿生物受到法师护甲的庇护。目标未着装护甲时的基础AC变为13+其敏捷调整值。目标必须一直未着装护甲才能保有此好处。",
+        "source": "玩家手册 第256页"
+    },
+    {
+        "id": "fire-bolt",
+        "name": "火焰箭",
+        "nameEn": "Fire Bolt",
+        "level": 0,
+        "school": "塑能",
+        "schoolEn": "evocation",
+        "classes": ["法师", "术士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "120尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "瞬时",
+        "description": "你指尖射出一道火焰。选择一个范围内的生物或物件。该目标受到1d10点火焰伤害。一个 flammable 的物件若未被着装或携带，则被点燃。",
+        "higherLevel": "你使用的法术位在5级时，此伤害增长为2d10；11级时为3d10；17级时为4d10。",
+        "source": "玩家手册 第242页"
+    },
+    {
+        "id": "light",
+        "name": "光亮术",
+        "nameEn": "Light",
+        "level": 0,
+        "school": "塑能",
+        "schoolEn": "evocation",
+        "classes": ["吟游诗人", "牧师", "法师"],
+        "castingTime": "1动作",
+        "range": "触碰",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": true,
+            "materialDesc": "一个萤火虫或少许磷光苔藓"
+        },
+        "duration": "专注，最多1小时",
+        "description": "你触碰的一个物件会散发微光。该物件在20尺半径内散发亮光，并在额外20尺内散发微光。法术终止前，你可以以一个附赠动作使亮光熄灭或重新点亮。",
+        "source": "玩家手册 第255页"
+    },
+    {
+        "id": "mage-hand",
+        "name": "法师之手",
+        "nameEn": "Mage Hand",
+        "level": 0,
+        "school": "咒法",
+        "schoolEn": "conjuration",
+        "classes": ["吟游诗人", "法师", "术士"],
+        "castingTime": "1动作",
+        "range": "30尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "专注，最多1分钟",
+        "description": "你在施法距离内创造一只漂浮的幽灵手。这只手持续存在至法术终止。你可以以一个附赠动作控制这只手。这只手可以操控物件、开门、放置物件于容器中或从容器中取物。",
+        "source": "玩家手册 第256页"
+    },
+    {
+        "id": "protection-from-evil-good",
+        "name": "防护善恶",
+        "nameEn": "Protection from Evil and Good",
+        "level": 1,
+        "school": "防护",
+        "schoolEn": "abjuration",
+        "classes": ["吟游诗人", "牧师", "德鲁伊", "圣武士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "触碰",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "专注，最多10分钟",
+        "description": "你触碰的一个自愿生物在对抗以下生物类型的所有检定中获得优势：炼狱生物、天界生物、元素生物、精类生物、不死生物、妖精生物。该生物对这些生物对其发动的攻击检定也具有优势。",
+        "source": "玩家手册 第270页"
+    },
+    {
+        "id": "glitterdust",
+        "name": "闪光尘",
+        "nameEn": "Glitterdust",
+        "level": 2,
+        "school": "咒法",
+        "schoolEn": "conjuration",
+        "classes": ["吟游诗人", "法师", "德鲁伊", "术士"],
+        "castingTime": "1动作",
+        "range": "60尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": true,
+            "materialDesc": "少许铜粉"
+        },
+        "duration": "专注，最多1分钟",
+        "description": "你在施法距离内指定一个点。所有在该点周围10尺爆发半径内的生物必须进行一次敏捷豁免。豁免失败者被闪光尘覆盖，变为显形状态并目眩。",
+        "source": "玩家手册 第245页"
+    },
+    {
+        "id": "suggestion",
+        "name": "暗示术",
+        "nameEn": "Suggestion",
+        "level": 2,
+        "school": "惑控",
+        "schoolEn": "enchantment",
+        "classes": ["吟游诗人", "法师", "邪术师"],
+        "castingTime": "1动作",
+        "range": "30尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "专注，最多8小时",
+        "description": "你向一个你可见的生物提出一个简短的、不超过一句话的建议。目标必须进行一次感知豁免。豁免失败者将按照你的建议行动，直到法术结束。",
+        "higherLevel": "使用3环或更高环数的法术位施展此法术时，持续时间变为24小时。",
+        "source": "玩家手册 第279页"
+    },
+    {
+        "id": "fly",
+        "name": "飞行术",
+        "nameEn": "Fly",
+        "level": 3,
+        "school": "变化",
+        "schoolEn": "transmutation",
+        "classes": ["法师", "术士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "触碰",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": true,
+            "materialDesc": "一根鸟的羽毛"
+        },
+        "duration": "专注，最多10分钟",
+        "description": "你触碰的一个自愿生物获得飞行速度60尺。当法术终止时，如果目标仍在空中，则会安全缓落至地面。",
+        "higherLevel": "使用4环或更高环数的法术位施展此法术时，持续时间变为1小时，且不再需要专注。",
+        "source": "玩家手册 第243页"
+    },
+    {
+        "id": "dispel-magic",
+        "name": "解除魔法",
+        "nameEn": "Dispel Magic",
+        "level": 3,
+        "school": "防护",
+        "schoolEn": "abjuration",
+        "classes": ["吟游诗人", "牧师", "德鲁伊", "法师", "术士", "邪术师"],
+        "castingTime": "1动作",
+        "range": "120尺",
+        "components": {
+            "verbal": true,
+            "somatic": true,
+            "material": false
+        },
+        "duration": "瞬时",
+        "description": "你指定施法距离内的一个生物、物件或魔法效应。如果目标的法术环数总和不超过3，则所有影响它的法术都会终止。否则，你要对每个环数超过3的法术进行一次能力检定（DC=10+法术环数）。",
+        "higherLevel": "使用4环或更高环数的法术位施展此法术时，你可以自动解除目标上环数不高于你所使用法术位环数的所有法术。",
+        "source": "玩家手册 第231页"
+    }
+]
