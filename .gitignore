@@ -3,6 +3,9 @@
 # WorkBuddy 数据目录（不需要上传）
 .workbuddy/
 
+# Obsidian 配置目录（不需要上传）
+.obsidian/
+
 # IDE 配置文件
 .vscode/
 .idea/

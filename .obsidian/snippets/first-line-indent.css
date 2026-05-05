@@ -1,4 +1,0 @@
-/* 为所有段落的阅读视图添加首行缩进 */
-.markdown-preview-view p {
-    text-indent: 2em;
-}
