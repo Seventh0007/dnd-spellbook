@@ -27,7 +27,6 @@
     
     /* 字体 */
     --font-serif: Georgia, "Noto Serif SC", "SimSun", serif;
-    --font-sans: "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
     --font-size-base: 16px;
     
     /* 间距 */
@@ -235,90 +234,6 @@ body {
         padding: var(--spacing-sm);
         text-align: center;
     }
-}
-
-/* ============================
-   数字字体样式（黑体/sans-serif - 与宋体完美对齐）
-   ============================ */
-/* 
- * 设计说明：
- * 1. 宋体（衬线字体）中的数字往往不够规整，与宋体混排时不够美观
- * 2. 黑体/无衬线字体的数字更规整、等宽，适合表格、数据展示
- * 3. 使用 tabular-nums 确保数字等宽对齐
- * 4. 此样式会自动应用于所有 .number 类，以及通过JS自动包装的数字
- */
-
-/* 数字基础样式 - 应用于所有数字 */
-.number,
-.num,
-.stat-value,
-.spell-level,
-.dice-roll,
-.page-title span,
-.hero-title span,
-h1 span, h2 span, h3 span,
-.level-badge,
-.dc-value,
-.duration-value,
-.range-value,
-.source-placeholder,
-.modal-content .source-placeholder,
-div[id*="description"],
-div[id*="content"] {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    color: var(--text-primary);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
-    font-size: 0.95em; /* 黑体稍微缩小，与宋体视觉大小匹配 */
-}
-
-/* 法术环数显示优化 - 使用黑体 */
-[class*="level-"] {
-    font-family: var(--font-sans) !important;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
-}
-
-/* 法术环数颜色 + 黑体 */
-.level-0 { color: #666; font-family: var(--font-sans); }
-.level-1 { color: #080; font-family: var(--font-sans); }
-.level-2 { color: #008; font-family: var(--font-sans); }
-.level-3 { color: #080; font-family: var(--font-sans); }
-.level-4 { color: #808; font-family: var(--font-sans); }
-.level-5 { color: #f80; font-family: var(--font-sans); }
-.level-6 { color: #f00; font-family: var(--font-sans); }
-.level-7 { color: #f0f; font-family: var(--font-sans); }
-.level-8 { color: #ff0; background: #000; padding: 2px 5px; border-radius: 3px; font-family: var(--font-sans); }
-.level-9 { color: #fff; background: #000; padding: 2px 5px; border-radius: 3px; font-family: var(--font-sans); }
-
-/* 表格中的数字 - 等宽对齐 */
-td, th,
-.table td,
-.table th {
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
-}
-
-/* 确保数字在衬线文本中正确对齐 */
-body {
-    font-variant-numeric: tabular-nums;
-}
-
-/* 法术描述中的数字自动样式 */
-.description,
-.content-section p,
-.content-section li,
-.funfact-content {
-    font-variant-numeric: tabular-nums;
-}
-
-/* 标题中的数字特殊处理 */
-h1, h2, h3,
-.hero-title,
-.page-title {
-    font-variant-numeric: tabular-nums;
 }
 
 /* ============================

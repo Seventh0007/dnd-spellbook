@@ -185,9 +185,6 @@ function createSpellCard(spell) {
         </div>
     `;
     
-    /* 自动包装数字（使用黑体字体与宋体对齐） */
-    wrapNumbers(card);
-    
     return card;
 }
 
@@ -258,9 +255,6 @@ function openSpellModal(spell) {
             <div style="clear: both;"></div>
         </div>
     `;
-    
-    /* 自动包装数字（使用黑体字体与宋体对齐） */
-    wrapNumbers(modalContent);
     
     /* 重新绑定关闭按钮事件 */
     const newModalClose = document.getElementById('modal-close');

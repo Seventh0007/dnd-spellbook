@@ -1,6 +1,6 @@
-/* ============================
+/* ===========================
    跑团法术书 - 首页功能
-   ============================ */
+   ========================== */
 
 /* 跑团冷知识数据库（至少15条） */
 const funFacts = [
@@ -48,9 +48,9 @@ const funFacts = [
 /* 当前冷知识索引 */
 let currentFunFactIndex = -1;
 
-/* ============================
+/* ===========================
    冷知识功能
-   ============================ */
+   ========================== */
 
 /* 显示下一个冷知识（带淡入淡出动画） */
 function showNextFunFact() {
@@ -94,9 +94,9 @@ function initFunFacts() {
     }
 }
 
-/* ============================
+/* ===========================
    返回顶部功能
-   ============================ */
+   ========================== */
 
 /* 滚动到顶部（平滑） */
 function scrollToTop() {
@@ -118,9 +118,9 @@ function toggleBackToTopButton() {
     }
 }
 
-/* ============================
+/* ===========================
    Toast提示功能（Stat Block风格）
-   ============================ */
+   ========================== */
 
 /* 显示Toast提示 */
 function showToast(message, duration = 3000) {
@@ -146,6 +146,10 @@ function showToast(message, duration = 3000) {
     }, duration);
 }
 
+/* ===========================
+   页面初始化
+   ========================== */
+
 /* DOM加载完成后初始化 */
 document.addEventListener('DOMContentLoaded', function() {
     /* 初始化冷知识 */
@@ -157,81 +161,13 @@ document.addEventListener('DOMContentLoaded', function() {
     /* 初始检查返回顶部按钮状态 */
     toggleBackToTopButton();
     
-    /* 自动包装数字（使用黑体字体与宋体对齐） */
-    wrapNumbers(document.body);
-    
     console.log('跑团法术书 - 首页已加载');
     console.log('冷知识数量：' + funFacts.length);
 });
 
-/* ============================
+/* ===========================
    工具函数
-   ============================ */
-
-/* 自动包装数字函数（使用黑体字体与宋体对齐）
- * 自动遍历指定元素内的所有文本节点，将数字包装在 <span class="number"> 中
- * 这样数字就会自动使用黑体/无衬线字体，与宋体完美对齐
- * element: 要处理的元素，默认为 document.body
- */
-function wrapNumbers(element) {
-    const target = element || document.body;
-    
-    // 使用 TreeWalker 遍历所有文本节点
-    const walker = document.createTreeWalker(
-        target,
-        NodeFilter.SHOW_TEXT,
-        {
-            acceptNode: function(node) {
-                // 跳过 script、style 标签
-                const parent = node.parentElement;
-                if (!parent) return NodeFilter.FILTER_REJECT;
-                
-                const tag = parent.tagName.toUpperCase();
-                if (tag === 'SCRIPT' || tag === 'STYLE') {
-                    return NodeFilter.FILTER_REJECT;
-                }
-                
-                // 跳过已经是 .number 类的元素
-                if (parent.classList && parent.classList.contains('number')) {
-                    return NodeFilter.FILTER_REJECT;
-                }
-                
-                // 只处理包含数字的文本节点
-                return /\d/.test(node.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-            }
-        },
-        false
-    );
-    
-    const textNodes = [];
-    let node;
-    
-    while (node = walker.nextNode()) {
-        textNodes.push(node);
-    }
-    
-    // 处理每个包含数字文本节点
-    textNodes.forEach(textNode => {
-        const text = textNode.textContent;
-        
-        // 使用正则表达式匹配数字（整数、小数、带单位的数字）
-        // 匹配：123、1.5、第123页、150尺 等
-        const processed = text.replace(/\b(\d+(\.\d+)?)\b/g, '<span class="number">$1</span>');
-        
-        // 如果内容有变化，则替换
-        if (processed !== text) {
-            const wrapper = document.createElement('span');
-            wrapper.innerHTML = processed;
-            
-            // 替换原始文本节点
-            if (textNode.parentNode) {
-                textNode.parentNode.replaceChild(wrapper, textNode);
-            }
-        }
-    });
-    
-    console.log('数字字体处理完成');
-}
+   ========================== */
 
 /* 防抖函数 */
 function debounce(func, wait) {
