@@ -11,51 +11,7 @@
            法术查询页特定样式
            ============================ */
         
-        /* 导航栏（Stat Block风格） */
-        .navbar {
-            background: var(--parchment);
-            border: 3px double var(--dnd-red);
-            padding: var(--spacing-md) var(--spacing-lg);
-            margin-bottom: var(--spacing-xl);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 15px var(--shadow-color);
-        }
-        
-        .navbar-logo {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: var(--dnd-red);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .navbar-logo:hover {
-            text-decoration: none;
-            color: var(--dnd-red-light);
-        }
-        
-        .navbar-links {
-            display: flex;
-            gap: var(--spacing-lg);
-            list-style: none;
-        }
-        
-        .navbar-links a {
-            color: var(--dnd-red);
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-links a:hover {
-            text-decoration: underline;
-            color: var(--dnd-red-light);
-        }
-        
+        /* 导航栏（使用全局样式） */
         /* 页面标题区（Stat Block风格） */
         .page-header {
             text-align: center;
@@ -361,6 +317,7 @@
     <div class="back-to-top" id="backToTop" onclick="scrollToTop()"></div>
     
     <!-- JavaScript -->
+    <script src="js/main.js"></script>
     <script src="js/spells.js"></script>
 </body>
 </html>
