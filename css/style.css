@@ -25,8 +25,8 @@
     --shadow-color: rgba(0, 0, 0, 0.5);
     --shadow-light: rgba(122, 32, 13, 0.6);
     
-    /* 字体 */
-    --font-serif: Georgia, "Noto Serif SC", "SimSun", serif;
+    /* 字体 - 统一使用宋体，避免数字和汉字使用不同字体 */
+    --font-serif: "Noto Serif SC", "SimSun", "Songti SC", serif;
     --font-size-base: 16px;
     
     /* 间距 */
@@ -58,6 +58,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
+    font-variant-numeric: tabular-nums; /* 数字等宽对齐 */
 }
 
 /* ============================
