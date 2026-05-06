@@ -90,14 +90,18 @@ function updatePageTitle(version) {
 function loadSpellsData(version) {
     const dataFile = version === '5r' ? 'data/spells-5r.json' : 'data/spells-5e.json';
     
+    console.log(`🔍 开始加载法术数据: ${dataFile}`);
+    
     fetch(dataFile)
         .then(response => {
+            console.log(`📡 响应状态: ${response.status} ${response.statusText}`);
             if (!response.ok) {
-                throw new Error('法术数据加载失败');
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
             return response.json();
         })
         .then(data => {
+            console.log(`✅ JSON解析成功, 共 ${data.length} 个法术`);
             allSpells = data;
             
             /* 只加载前 N 个法术（用于测试和逐步导入）*/
@@ -107,19 +111,20 @@ function loadSpellsData(version) {
             }
             
             filteredSpells = [...allSpells];
+            console.log(`🎯 准备渲染 ${filteredSpells.length} 个法术卡片`);
             renderSpellsGrid(filteredSpells);
-            console.log(`已加载 ${allSpells.length} 个法术`);
+            console.log(`✅ 已加载 ${allSpells.length} 个法术`);
         })
         .catch(error => {
-            console.error('加载法术数据失败：', error);
+            console.error('❌ 加载法术数据失败：', error);
             showToast('法术数据加载失败，请检查网络连接');
             
             /* 使用测试数据（如果没有JSON文件） */
             if (allSpells.length === 0) {
+                console.log('⚠️ 使用测试数据');
                 allSpells = getTestSpells();
                 filteredSpells = [...allSpells];
                 renderSpellsGrid(filteredSpells);
-                console.log('使用测试数据');
             }
         });
 }
