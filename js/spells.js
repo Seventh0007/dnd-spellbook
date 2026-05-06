@@ -6,6 +6,9 @@
 let allSpells = []; // 所有法术数据
 let filteredSpells = []; // 筛选后的法术
 
+/* 配置：控制加载的法术数量（设置为 null 则加载全部）*/
+const MAX_SPELLS_TO_LOAD = 50; // 先制作前50个法术进入网页
+
 /* ============================
    初始化
    ============================ */
@@ -96,6 +99,13 @@ function loadSpellsData(version) {
         })
         .then(data => {
             allSpells = data;
+            
+            /* 只加载前 N 个法术（用于测试和逐步导入）*/
+            if (MAX_SPELLS_TO_LOAD !== null && allSpells.length > MAX_SPELLS_TO_LOAD) {
+                console.log(`⚠️ 只加载前 ${MAX_SPELLS_TO_LOAD} 个法术（总共 ${allSpells.length} 个）`);
+                allSpells = allSpells.slice(0, MAX_SPELLS_TO_LOAD);
+            }
+            
             filteredSpells = [...allSpells];
             renderSpellsGrid(filteredSpells);
             console.log(`已加载 ${allSpells.length} 个法术`);
